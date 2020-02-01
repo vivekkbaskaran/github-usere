@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Category = require("../../models/Category");
 
+/*
+@route GET /api/category/list
+@access Public
+*/
 router.get("/list", (req, res) => {
   Category.aggregate(
     [
