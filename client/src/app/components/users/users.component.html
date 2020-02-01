@@ -1,0 +1,37 @@
+<div class="container bg-3 text-center">
+  <br />
+  <div class="row">
+    <div class="form-group">
+      <form [formGroup]="Form" (ngSubmit)="onSubmit()" class="form-inline">
+        <div class="fieldwrapper">
+          <input
+            class="field r2"
+            type="text"
+            formControlName="userName"
+            placeholder="Search by Username"
+          />
+          <input type="submit" id="findbutton" value="Find" />
+        </div>
+        <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+          <div *ngIf="f.userName.errors.required">
+            <p class="alert alert-danger">Name is required</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let user of userData">
+      <img
+        src="{{ user.avatar_url }}"
+        class="img-responsive"
+        style="width:100%"
+        alt="Image"
+      />
+      <h1>{{ user.login }}</h1>
+      <p><button [routerLink]="['/user', user.login]">Profile</button></p>
+    </div>
+  </div>
+</div>
+<br />

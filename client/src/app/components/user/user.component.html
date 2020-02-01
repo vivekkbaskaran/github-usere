@@ -1,0 +1,60 @@
+<div class="container portfolio">
+  <button [routerLink]="['/home']" class="btn btn-primary">Back</button>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <div class="heading">
+        <img src="https://image.ibb.co/cbCMvA/logo.png" /> INFO
+      </div>
+    </div>
+  </div>
+  <div class="bio-info">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bio-image">
+              <img src="{{ user.avatar_url }}" alt="image" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="bio-content">
+          <h1>Hi there, {{ user.login }}</h1>
+          <h3>email : {{ user.email }}</h3>
+          <h3>location : {{ user.location }}</h3>
+          <h3>company : {{ user.company }}</h3>
+          <h3>public_gists : {{ user.public_gists }}</h3>
+          <h3>public_repos : {{ user.public_repos }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="bio-info">
+    <div class="row">
+      <div class="col-md-12" *ngIf="repoPresent">
+        <div class="bio-content" *ngFor="let rep of repo">
+          <div>
+            <div class="col-md-6">{{ rep.name }}</div>
+            <div class="col-md-6">
+              <span class="label label-primary"
+                >Watchers : {{ rep.watchers_count }}
+              </span>
+              <span class="label label-info mleft-20">
+                forks : {{ rep.forks }}</span
+              >
+            </div>
+          </div>
+          <br />
+          <hr />
+        </div>
+      </div>
+      <div class="col-md-12" *ngIf="!repoPresent">
+        <h3>No Repository Found for {{ user.login }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
