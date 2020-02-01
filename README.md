@@ -22,7 +22,9 @@ Node JS api
   
   3) Then you can find node_modules folder within the client folder
   
-  4) just to to insert the below mongodb query
+  4) execute the command npm run server from the root directory of the project in the command prompt
+  
+  5) just to to insert the below mongodb query
   
     db.categories.insertMany([{name:'category5',is_active:1},{name:'category6',is_active:1}]) - for categpries schema
     
@@ -31,4 +33,4 @@ Node JS api
     db.products.insertMany([{name:'product1',category_id:ObjectId("category schema id"), is_active:1},{name:'product2',category_id:ObjectId("category schema id"),is_active:1}])
     
     
-  5) just run http://localhost:5000/api/category/list where you can find number of products associated to that category as response.
+  6) just run http://localhost:5000/api/category/list where you can find number of products associated to that category as response.
